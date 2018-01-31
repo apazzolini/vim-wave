@@ -12,35 +12,37 @@ endif
 let g:colors_name = 'wave'
 
 " Color definitions
-let g:wBlack='ctermfg=0'   
-let g:wRed='ctermfg=1'     
-let g:wGreen='ctermfg=2'   
-let g:wYellow='ctermfg=3'  
-let g:wBlue='ctermfg=4'    
-let g:wMagenta='ctermfg=5' 
-let g:wCyan='ctermfg=6'    
-let g:wWhite='ctermfg=7'   
-let g:wFg1='ctermfg=244'   
-let g:wFg2='ctermfg=245'   
-let g:wFg3='ctermfg=246'   
-let g:wFg4='ctermfg=247'   
-let g:wFg5='ctermfg=248'   
-let g:wFg6='ctermfg=249'   
+let g:wBlack='ctermfg=0'
+let g:wRed='ctermfg=1'
+let g:wGreen='ctermfg=2'
+let g:wYellow='ctermfg=3'
+let g:wBlue='ctermfg=4'
+let g:wMagenta='ctermfg=5'
+let g:wCyan='ctermfg=6'
+let g:wWhite='ctermfg=7'
+let g:wFg1='ctermfg=244'
+let g:wFg2='ctermfg=245'
+let g:wFg3='ctermfg=246'
+let g:wFg4='ctermfg=247'
+let g:wFg5='ctermfg=248'
+let g:wFg6='ctermfg=249'
 
-let g:wBlackBg='ctermbg=0' 
-let g:wRedBg='ctermbg=1'   
-let g:wGreenBg='ctermbg=2' 
+let g:wBrightRed='ctermfg=9'
+
+let g:wBlackBg='ctermbg=0'
+let g:wRedBg='ctermbg=1'
+let g:wGreenBg='ctermbg=2'
 let g:wYellowBg='ctermbg=3'
-let g:wBlueBg='ctermbg=4'  
+let g:wBlueBg='ctermbg=4'
 let g:wMagentaBg='ctermbg=5'
-let g:wCyanBg='ctermbg=6'  
-let g:wWhiteFg='ctermbg=7' 
-let g:wBg1='ctermbg=244'   
-let g:wBg2='ctermbg=245'   
-let g:wBg3='ctermbg=246'   
-let g:wBg4='ctermbg=247'   
-let g:wBg5='ctermbg=248'   
-let g:wBg6='ctermbg=249'   
+let g:wCyanBg='ctermbg=6'
+let g:wWhiteFg='ctermbg=7'
+let g:wBg1='ctermbg=244'
+let g:wBg2='ctermbg=245'
+let g:wBg3='ctermbg=246'
+let g:wBg4='ctermbg=247'
+let g:wBg5='ctermbg=248'
+let g:wBg6='ctermbg=249'
 
 let g:wItalic='cterm=italic'
 let g:wNoBg='ctermbg=none'
@@ -121,7 +123,7 @@ hi! link jsRepeat Keyword
 hi! link jsOperator Keyword
 
 " Strings
-call s:HL('String', g:wGreen)
+call s:HL('String', g:wBrightRed)
 hi! link jsString String
 hi! link Identifier String
 hi! link jsTemplateString String
@@ -154,25 +156,25 @@ call s:HL('NeomakeError', g:wNoBg, g:wRed, g:wNoCterm)
 call s:HL('NeomakeWarning', g:wNoBg, g:wYellow, g:wNoCterm)
 
 " NERDTree
-call s:HL('NERDTreeCWD', g:wGreen)
-call s:HL('NERDTreeFile', g:wWhite)
-call s:HL('NERDTreeHelp', g:wWhite)
-call s:HL('NERDTreeDir', g:wCyan, g:wNoCterm)
-hi! link NERDTreeDirSlash NERDTreeDir
-hi! link NERDTreeOpenable NERDTreeDir
-hi! link NERDTreeClosable NERDTreeDir
-
-call s:HL('NERDTreeExecFile', g:wRed)
-call s:HL('NERDTreeUp', g:wRed)
-call s:HL('NERDTreeToggleOn', g:wRed)
-call s:HL('NERDTreeToggleOff', g:wRed)
-
-call s:HL('NERDTreeFlags', g:wMagenta)
-call s:HL('NERDTreeGitStatusModified', g:wMagenta)
-call s:HL('NERDTreeGitStatusStaged', g:wMagenta)
-call s:HL('NERDTreeGitStatusRenamed', g:wMagenta)
-call s:HL('NERDTreeGitStatusUnmerged', g:wMagenta)
-call s:HL('NERDTreeGitStatusUntracked', g:wMagenta)
-call s:HL('NERDTreeGitStatusDirDirty', g:wMagenta)
-call s:HL('NERDTreeGitStatusDirClean', g:wMagenta)
-call s:HL('NERDTreeGitStatusIgnored', g:wMagenta)
+" call s:HL('NERDTreeCWD', g:wGreen)
+" call s:HL('NERDTreeFile', g:wWhite)
+" call s:HL('NERDTreeHelp', g:wWhite)
+" call s:HL('NERDTreeDir', g:wCyan, g:wNoCterm)
+" hi! link NERDTreeDirSlash NERDTreeDir
+" hi! link NERDTreeOpenable NERDTreeDir
+" hi! link NERDTreeClosable NERDTreeDir
+"
+" call s:HL('NERDTreeExecFile', g:wRed)
+" call s:HL('NERDTreeUp', g:wRed)
+" call s:HL('NERDTreeToggleOn', g:wRed)
+" call s:HL('NERDTreeToggleOff', g:wRed)
+"
+" call s:HL('NERDTreeFlags', g:wMagenta)
+" call s:HL('NERDTreeGitStatusModified', g:wMagenta)
+" call s:HL('NERDTreeGitStatusStaged', g:wMagenta)
+" call s:HL('NERDTreeGitStatusRenamed', g:wMagenta)
+" call s:HL('NERDTreeGitStatusUnmerged', g:wMagenta)
+" call s:HL('NERDTreeGitStatusUntracked', g:wMagenta)
+" call s:HL('NERDTreeGitStatusDirDirty', g:wMagenta)
+" call s:HL('NERDTreeGitStatusDirClean', g:wMagenta)
+" call s:HL('NERDTreeGitStatusIgnored', g:wMagenta)

@@ -33,7 +33,7 @@ let s:p.replace.left = [ [ s:base03, s:magenta ], [ s:base04, s:base02 ] ]
 let s:p.visual.left = [ [ s:base03, s:peach ], [ s:base04, s:base02 ] ]
 let s:p.normal.middle = [ [ s:base05, s:base02 ] ]
 let s:p.inactive.middle = [ [ s:base05, s:base01 ] ]
-let s:p.normal.error = [ [ s:red, s:base03 ] ]
+let s:p.normal.error = [ [ s:black, s:peach ] ]
 let s:p.normal.warning = [ [ s:yellow, s:base02 ] ]
 
 let g:lightline#colorscheme#wave#palette = lightline#colorscheme#flatten(s:p)
