@@ -81,15 +81,15 @@ call s:HL('DiffText', g:wRed)
 call s:HL('Question', g:wGreen)
 call s:HL('MoreMsg', g:wGreen)
 call s:HL('ModeMsg', g:wGreen, g:wNoCterm)
-call s:HL('MatchParen', g:wRed, g:wNoBg)
+call s:HL('MatchParen', g:wBlue, g:wNoBg)
 call s:HL('Title', g:wBlue)
 call s:HL('Special', g:wBlue)
 call s:HL('SpecialKey', g:wBlue)
 call s:HL('NonText', g:wFg1)
 call s:HL('VertSplit', g:wNoBg, g:wFg3, g:wNoCterm)
-call s:HL('CursorLine', g:wBg2, g:wNoCterm)
+call s:HL('CursorLine', g:wBg1, g:wNoCterm)
 call s:HL('Cursor', g:wNoCterm, g:wRedBg, g:wBlack)
-call s:HL('Todo', g:wRedBg, g:wFg1)
+call s:HL('Todo', g:wNoBg, g:wRed, g:wItalic)
 call s:HL('TabLineSel', g:wBg1, g:wGreen, g:wNoCterm)
 call s:HL('TabLineFill', g:wNoBg, g:wNoFg, g:wNoCterm)
 call s:HL('TabLine', g:wNoBg, g:wFg2, g:wNoCterm)
@@ -123,14 +123,14 @@ hi! link jsRepeat Keyword
 hi! link jsOperator Keyword
 
 " Strings
-call s:HL('String', g:wBrightRed)
+call s:HL('String', g:wYellow)
 hi! link jsString String
 hi! link Identifier String
 hi! link jsTemplateString String
 hi! link jsObjectStringKey String
 
 " Symbols and Numbers
-call s:HL('Statement', g:wYellow)
+call s:HL('Statement', g:wGreen)
 hi! link Constant Statement
 hi! link PreProc Statement
 hi! link Type Statement
@@ -140,7 +140,7 @@ hi! link jsBooleanFalse Statement
 hi! link jsArrowFunction Statement
 
 " Function names
-call s:HL('Function', g:wMagenta)
+call s:HL('Function', g:wBlue)
 hi! link jsFuncAssignment Function
 hi! link jsObjectFuncName Function
 
@@ -151,9 +151,9 @@ hi! link xmlEndTag xmlTag
 hi! link jsxCloseTag jsxTag
 hi! link jsxCloseString jsxTag
 
-" Neomake
-call s:HL('NeomakeError', g:wNoBg, g:wRed, g:wNoCterm)
-call s:HL('NeomakeWarning', g:wNoBg, g:wYellow, g:wNoCterm)
+" Ale
+call s:HL('SpellBad', g:wNoBg, g:wBrightRed, g:wNoCterm)
+hi! link ALEErrorSign SpellBad
 
 " NERDTree
 " call s:HL('NERDTreeCWD', g:wGreen)
