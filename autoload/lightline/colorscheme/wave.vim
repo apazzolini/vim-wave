@@ -1,5 +1,5 @@
 " =============================================================================
-" Filename: autoload/lightline/colorscheme/vim-wave
+" Filename: autoload/lightline/colorscheme/wave
 " Author: Andre Azzolini (apazzolini)
 " License: MIT License
 " Last Change: 2017/12/27 08:23:27.
