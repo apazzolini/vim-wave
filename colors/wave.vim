@@ -5,6 +5,8 @@ endif
 set background=dark
 "hi clear
 
+hi! Normal ctermbg=NONE guibg=NONE
+
 if exists('syntax_on')
   syntax reset
 endif
@@ -96,12 +98,21 @@ call s:HL('TabLine', g:wNoBg, g:wFg2, g:wNoCterm)
 call s:HL('LineNr', g:wFg2)
 call s:HL('CursorLineNr', g:wFg4)
 call s:HL('qfLineNr', g:wRed)
+call s:HL('jsSwitchCase', g:wBlue)
+call s:HL('Folded', g:wNoBg)
+call s:HL('diffRemoved', g:wRed)
+
+call s:HL('jsFlowDefinition', g:wMagenta)
+call s:HL('jsFlowType', g:wMagenta)
+call s:HL('jsxComponentName', g:wBlue)
 
 " Uncolored
 call s:HL('jsGlobalObjects', g:wWhite)
 call s:HL('jsGlobalNodeObjects', g:wWhite)
 call s:HL('jsBuiltins', g:wWhite)
 call s:HL('Whitespace', g:wWhite)
+call s:HL('jsFuncCall', g:wWhite)
+call s:HL('jsArrowFunction', g:wWhite)
 
 " Keywords
 call s:HL('Keyword', g:wCyan)
@@ -123,24 +134,23 @@ hi! link jsRepeat Keyword
 hi! link jsOperator Keyword
 
 " Strings
-call s:HL('String', g:wYellow)
+call s:HL('String', g:wGreen)
 hi! link jsString String
 hi! link Identifier String
 hi! link jsTemplateString String
 hi! link jsObjectStringKey String
 
 " Symbols and Numbers
-call s:HL('Statement', g:wGreen)
+call s:HL('Statement', g:wCyan)
 hi! link Constant Statement
 hi! link PreProc Statement
 hi! link Type Statement
 hi! link jsNumber Statement
 hi! link jsBooleanTrue Statement
 hi! link jsBooleanFalse Statement
-hi! link jsArrowFunction Statement
 
 " Function names
-call s:HL('Function', g:wBlue)
+call s:HL('Function', g:wYellow)
 hi! link jsFuncAssignment Function
 hi! link jsObjectFuncName Function
 
@@ -150,10 +160,33 @@ hi! link cssClassName Special
 hi! link xmlEndTag xmlTag
 hi! link jsxCloseTag jsxTag
 hi! link jsxCloseString jsxTag
+hi! link jsxTagName jsxComponentName
+hi! link jsxOpenPunct jsxComponentName
+hi! link jsxClosePunct jsxComponentName
+hi! link jsxOpenString jsxComponentName
+hi! link jsxCloseString jsxComponentName
 
 " Ale
 call s:HL('SpellBad', g:wNoBg, g:wBrightRed, g:wNoCterm)
 hi! link ALEErrorSign SpellBad
+hi! link ALEWarning SpellBad
+hi! link ALEInfo SpellBad
+hi! link ALEStyleError SpellBad
+
+call s:HL('NoUnderline', g:wNoBg, g:wNoCterm)
+hi! link CocUnderline NoUnderline
+
+call s:HL('WaveVirtualText', 'ctermfg=22')
+hi! link CocWarningVirtualText WaveVirtualText
+hi! link CocErrorVirtualText WaveVirtualText
+hi! link CocInfoVirtualText WaveVirtualText
+hi! link CocHintVirtualText WaveVirtualText
+hi! link CocWarningSign WaveVirtualText
+
+highlight CocErrorHighlight ctermfg=DarkRed cterm=none
+highlight CocErrorSign ctermfg=DarkRed cterm=none
+highlight CocErrorVirtualText ctermfg=Red
+highlight CocFloating ctermbg=244
 
 " NERDTree
 " call s:HL('NERDTreeCWD', g:wGreen)
