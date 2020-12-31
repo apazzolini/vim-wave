@@ -11,43 +11,49 @@ endif
 let g:colors_name = 'wave'
 
 if &background ==# 'dark'
-  hi! Normal ctermbg=NONE guibg=#1c2023 guifg=#c7ccd1
+  if empty($TMUX)
+    hi! Normal ctermbg=NONE guibg=#1c2023 guifg=#c7ccd1
+  else
+    " When we're using vim in tmux, we want the background to be transparent
+    " so that the active tmux pane is more readily apparant.
+    hi! Normal ctermbg=NONE guibg=NONE guifg=#c7ccd1
+  endif
 
-  let g:wRgbBlack='#1c2023'
-  let g:wRgbRed='#d19b9b'
-  let g:wRgbGreen='#a2c7a9'
-  let g:wRgbYellow='#dcdcaa'
-  let g:wRgbBlue='#ae95c7'
-  let g:wRgbMagenta='#c795ae'
-  let g:wRgbCyan='#95aec7'
-  let g:wRgbWhite='#c7ccd1'
-  let g:wRgbBrightRed='#d19b9b'
-  let g:wRgb22='#a27f74'
-  let g:wRgb244='#2b3034'
-  let g:wRgb245='#565e65'
-  let g:wRgb246='#747c84'
-  let g:wRgb247='#adb3ba'
-  let g:wRgb248='#c7ccd1'
-  let g:wRgb249='#dfe2e5'
+  let g:wRgbBlack     = '#1c2023'
+  let g:wRgbRed       = '#d19b9b'
+  let g:wRgbGreen     = '#a2c7a9'
+  let g:wRgbYellow    = '#dcdcaa'
+  let g:wRgbBlue      = '#ae95c7'
+  let g:wRgbMagenta   = '#c795ae'
+  let g:wRgbCyan      = '#95aec7'
+  let g:wRgbWhite     = '#c7ccd1'
+  let g:wRgbBrightRed = '#d19b9b'
+  let g:wRgb22        = '#a27f74'
+  let g:wRgb244       = '#2b3034'
+  let g:wRgb245       = '#565e65'
+  let g:wRgb246       = '#747c84'
+  let g:wRgb247       = '#adb3ba'
+  let g:wRgb248       = '#c7ccd1'
+  let g:wRgb249       = '#dfe2e5'
 else
   hi! Normal ctermbg=NONE guibg=#d5d6d7 guifg=#0c1c2b
 
-  let g:wRgbBlack='#f7f9fb'
-  let g:wRgbRed='#bf8b56'
-  let g:wRgbGreen='#8bbf56'
-  let g:wRgbYellow='#bfbf56'
-  let g:wRgbBlue='#568bbf'
-  let g:wRgbMagenta='#bf568b'
-  let g:wRgbCyan='#56bf8b'
-  let g:wRgbWhite='#0b1c2c'
-  let g:wRgbBrightRed='#bf5656'
-  let g:wRgb22='#a27f74'
-  let g:wRgb244='#2b3034'
-  let g:wRgb245='#565e65'
-  let g:wRgb246='#747c84'
-  let g:wRgb247='#adb3ba'
-  let g:wRgb248='#c7ccd1'
-  let g:wRgb249='#dfe2e5'
+  let g:wRgbBlack     = '#f7f9fb'
+  let g:wRgbRed       = '#bf5656'
+  let g:wRgbGreen     = '#5f8539'
+  let g:wRgbYellow    = '#bfbf56'
+  let g:wRgbBlue      = '#568bbf'
+  let g:wRgbMagenta   = '#bf568b'
+  let g:wRgbCyan      = '#56bf8b'
+  let g:wRgbWhite     = '#0b1c2c'
+  let g:wRgbBrightRed = '#bf8b56'
+  let g:wRgb22        = '#a27f74'
+  let g:wRgb244       = '#2b3034'
+  let g:wRgb245       = '#565e65'
+  let g:wRgb246       = '#747c84'
+  let g:wRgb247       = '#adb3ba'
+  let g:wRgb248       = '#c7ccd1'
+  let g:wRgb249       = '#dfe2e5'
 endif
 
 " Color definitions
@@ -101,10 +107,17 @@ function! s:HL(group, ...)
 endfunction
 
 " Search and Selection
-call s:HL('Visual', g:wBg2)
-call s:HL('QuickFixLine', g:wBg2, g:wFg5)
-call s:HL('Search', g:wBg2, g:wWhite)
-hi! link IncSearch Search
+if &background ==# 'dark'
+  call s:HL('Visual', g:wBg2)
+  call s:HL('QuickFixLine', g:wBg2, g:wFg5)
+  call s:HL('Search', g:wBg2, g:wWhite)
+  hi! link IncSearch Search
+else
+  call s:HL('Visual', g:wBg5)
+  call s:HL('QuickFixLine', g:wBg2, g:wFg5)
+  call s:HL('Search', g:wBg4)
+  hi! link IncSearch Search
+endif
 
 call s:HL('Pmenu', g:wBg2, g:wFg5)
 call s:HL('PmenuSel', g:wBg1, g:wFg5)
@@ -223,7 +236,7 @@ hi! link CocWarningSign WaveVirtualText
 
 call s:HL('VimWikiLink', g:wNoBg, g:wNoCterm, g:wBlue)
 call s:HL('VimWikiHr', g:wNoBg, g:wNoCterm, g:wNoFg)
-hi! link VimWikiListTodo VimWikiHr
+hi! link VimwikiList Normal
 
 " CoC
 "highlight CocErrorHighlight ctermfg=DarkRed cterm=none
