@@ -152,6 +152,7 @@ call s:HL('qfLineNr', g:wRed)
 call s:HL('jsSwitchCase', g:wBlue)
 call s:HL('Folded', g:wNoBg)
 call s:HL('diffRemoved', g:wRed)
+call s:HL('ReactHook', g:wYellow)
 
 call s:HL('jsFlowDefinition', g:wMagenta)
 call s:HL('jsFlowType', g:wMagenta)
@@ -164,6 +165,12 @@ call s:HL('jsBuiltins', g:wWhite)
 call s:HL('Whitespace', g:wWhite)
 call s:HL('jsFuncCall', g:wWhite)
 call s:HL('jsArrowFunction', g:wWhite)
+call s:HL('TSPunctDelimiter', g:wWhite)
+call s:HL('TSPunctBracket', g:wWhite)
+call s:HL('TSPunctSpecial', g:wWhite)
+call s:HL('TSConstructor', g:wWhite)
+call s:HL('TSParameter', g:wWhite)
+call s:HL('TSProperty', g:wWhite)
 
 " Keywords
 call s:HL('Keyword', g:wCyan)
@@ -201,9 +208,15 @@ hi! link jsBooleanTrue Statement
 hi! link jsBooleanFalse Statement
 
 " Function names
-call s:HL('Function', g:wYellow)
+call s:HL('Function', g:wMagenta)
 hi! link jsFuncAssignment Function
 hi! link jsObjectFuncName Function
+
+" Class names
+call s:HL('ClassName', g:wYellow)
+call s:HL('TSNamespace', g:wBlue)
+call s:HL('TSTag', g:wBlue)
+call s:HL('jsxAttribute', g:wCyan)
 
 " Etc
 hi! link cssBraces Delimiter
