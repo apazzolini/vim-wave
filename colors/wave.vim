@@ -171,6 +171,7 @@ call s:HL('TSPunctSpecial', g:wWhite)
 call s:HL('TSConstructor', g:wWhite)
 call s:HL('TSParameter', g:wWhite)
 call s:HL('TSProperty', g:wWhite)
+call s:HL('TSConstant', g:wWhite)
 
 " Keywords
 call s:HL('Keyword', g:wCyan)
@@ -208,13 +209,13 @@ hi! link jsBooleanTrue Statement
 hi! link jsBooleanFalse Statement
 
 " Function names
-call s:HL('Function', g:wMagenta)
+call s:HL('Function', g:wBlue)
 hi! link jsFuncAssignment Function
 hi! link jsObjectFuncName Function
 
 " Class names
 call s:HL('ClassName', g:wYellow)
-call s:HL('TSNamespace', g:wBlue)
+call s:HL('TSNamespace', g:wCyan)
 call s:HL('TSTag', g:wBlue)
 call s:HL('jsxAttribute', g:wCyan)
 
