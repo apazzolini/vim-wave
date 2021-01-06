@@ -27,7 +27,7 @@ if &background ==# 'dark'
   let g:wRgbMagenta   = '#c795ae'
   let g:wRgbCyan      = '#95aec7'
   let g:wRgbWhite     = '#c7ccd1'
-  let g:wRgbBrightRed = '#d19b9b'
+  let g:wRgbBrightRed = '#d67d75'
   let g:wRgb22        = '#a27f74'
   let g:wRgb244       = '#2b3034'
   let g:wRgb245       = '#565e65'
@@ -152,6 +152,7 @@ call s:HL('qfLineNr', g:wRed)
 call s:HL('jsSwitchCase', g:wBlue)
 call s:HL('Folded', g:wNoBg)
 call s:HL('diffRemoved', g:wRed)
+
 call s:HL('ReactHook', g:wYellow)
 
 call s:HL('jsFlowDefinition', g:wMagenta)
@@ -172,6 +173,7 @@ call s:HL('TSConstructor', g:wWhite)
 call s:HL('TSParameter', g:wWhite)
 call s:HL('TSProperty', g:wWhite)
 call s:HL('TSConstant', g:wWhite)
+call s:HL('TSVariableBuiltin', g:wWhite)
 
 " Keywords
 call s:HL('Keyword', g:wCyan)
@@ -251,12 +253,13 @@ hi! link CocWarningSign WaveVirtualText
 call s:HL('VimWikiLink', g:wNoBg, g:wNoCterm, g:wBlue)
 call s:HL('VimWikiHr', g:wNoBg, g:wNoCterm, g:wNoFg)
 hi! link VimwikiList Normal
+hi! link VimwikiCode Normal
 
 " CoC
-"highlight CocErrorHighlight ctermfg=DarkRed cterm=none
-"highlight CocErrorSign ctermfg=DarkRed cterm=none
-"highlight CocErrorVirtualText ctermfg=Red
-"highlight CocFloating ctermbg=244
+call s:HL('CocFloating', g:wBg2)
+call s:HL('CocErrorHighlight', g:wBrightRed)
+call s:HL('CocErrorSign', g:wBrightRed)
+call s:HL('CocErrorVirtualText', g:wRed)
 
 " NERDTree
 " call s:HL('NERDTreeCWD', g:wGreen)
