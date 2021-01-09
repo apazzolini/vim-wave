@@ -20,15 +20,14 @@ if &background ==# 'dark'
   endif
 
   let g:wRgbBlack     = '#1c2023'
-  let g:wRgbRed       = '#d19b9b'
+  let g:wRgbRed       = '#D5869E'
   let g:wRgbGreen     = '#a2c7a9'
-  let g:wRgbYellow    = '#dcdcaa'
-  let g:wRgbBlue      = '#ae95c7'
-  let g:wRgbMagenta   = '#c795ae'
-  let g:wRgbCyan      = '#95aec7'
+  let g:wRgbYellow    = '#E7DDBB'
+  let g:wRgbBlue      = '#95aec7'
+  let g:wRgbMagenta   = '#ae95c7'
+  let g:wRgbCyan      = '#68b2c9'
   let g:wRgbWhite     = '#c7ccd1'
-  let g:wRgbBrightRed = '#d67d75'
-  let g:wRgb22        = '#a27f74'
+  let g:wRgbBrightRed = '#d19b9b'
   let g:wRgb244       = '#2b3034'
   let g:wRgb245       = '#565e65'
   let g:wRgb246       = '#747c84'
@@ -47,13 +46,12 @@ else
   let g:wRgbCyan      = '#56bf8b'
   let g:wRgbWhite     = '#0b1c2c'
   let g:wRgbBrightRed = '#bf8b56'
-  let g:wRgb22        = '#a27f74'
-  let g:wRgb244       = '#2b3034'
+  let g:wRgb244       = '#dfe2e5'
   let g:wRgb245       = '#565e65'
   let g:wRgb246       = '#747c84'
   let g:wRgb247       = '#adb3ba'
   let g:wRgb248       = '#c7ccd1'
-  let g:wRgb249       = '#dfe2e5'
+  let g:wRgb249       = '#2b3034'
 endif
 
 " Color definitions
@@ -65,15 +63,13 @@ let g:wBlue='ctermfg=4 guifg='.g:wRgbBlue
 let g:wMagenta='ctermfg=5 guifg='.g:wRgbMagenta
 let g:wCyan='ctermfg=6 guifg='.g:wRgbCyan
 let g:wWhite='ctermfg=7 guifg='.g:wRgbWhite
-let g:wFg22='ctermfg=22 guifg='.g:wRgb22
+let g:wBrightRed='ctermfg=9 guifg='.g:wRgbBrightRed
 let g:wFg1='ctermfg=244 guifg='.g:wRgb244
 let g:wFg2='ctermfg=245 guifg='.g:wRgb245
 let g:wFg3='ctermfg=246 guifg='.g:wRgb246
 let g:wFg4='ctermfg=247 guifg='.g:wRgb247
 let g:wFg5='ctermfg=248 guifg='.g:wRgb248
 let g:wFg6='ctermfg=249 guifg='.g:wRgb249
-
-let g:wBrightRed='ctermfg=9 guifg='.g:wRgbBrightRed
 
 let g:wBlackBg='ctermbg=0 guibg='.g:wRgbBlack
 let g:wRedBg='ctermbg=1 guibg='.g:wRgbRed
@@ -102,7 +98,6 @@ function! s:HL(group, ...)
         call add(cmd, a:000[i])
         let i += 1
     endwhile
-
     execute join(cmd, ' ')
 endfunction
 
@@ -122,7 +117,11 @@ endif
 call s:HL('Pmenu', g:wBg2, g:wFg5)
 call s:HL('PmenuSel', g:wBg1, g:wFg5)
 
-" One-off misc highlightings
+" Diff
+call s:HL('diffAdded', g:wGreen)
+call s:HL('diffRemoved', g:wRed)
+
+" Non-code-related
 call s:HL('ColorColumn', g:wBg1)
 call s:HL('Directory', g:wGreen)
 call s:HL('Comment', g:wFg3, g:wItalic)
@@ -148,108 +147,41 @@ call s:HL('TabLineFill', g:wNoBg, g:wNoFg, g:wNoCterm)
 call s:HL('TabLine', g:wNoBg, g:wFg2, g:wNoCterm)
 call s:HL('LineNr', g:wFg2)
 call s:HL('CursorLineNr', g:wFg4)
-call s:HL('qfLineNr', g:wRed)
-call s:HL('jsSwitchCase', g:wBlue)
 call s:HL('Folded', g:wNoBg)
-call s:HL('diffRemoved', g:wRed)
+call s:HL('qfLineNr', g:wRed)
 
-call s:HL('ReactHook', g:wYellow)
-
-call s:HL('jsFlowDefinition', g:wMagenta)
-call s:HL('jsFlowType', g:wMagenta)
-call s:HL('jsxComponentName', g:wBlue)
-
-" Uncolored
-call s:HL('jsGlobalObjects', g:wWhite)
-call s:HL('jsGlobalNodeObjects', g:wWhite)
-call s:HL('jsBuiltins', g:wWhite)
-call s:HL('Whitespace', g:wWhite)
-call s:HL('jsFuncCall', g:wWhite)
-call s:HL('jsArrowFunction', g:wWhite)
-call s:HL('TSPunctDelimiter', g:wWhite)
-call s:HL('TSPunctBracket', g:wWhite)
-call s:HL('TSPunctSpecial', g:wWhite)
-call s:HL('TSConstructor', g:wWhite)
-call s:HL('TSParameter', g:wWhite)
-call s:HL('TSProperty', g:wWhite)
-call s:HL('TSConstant', g:wWhite)
-call s:HL('TSVariableBuiltin', g:wWhite)
-
-" Keywords
-call s:HL('Keyword', g:wCyan)
-hi! link jsImport Keyword
-hi! link jsFrom Keyword
-hi! link jsExport Keyword
-hi! link jsExportDefault Keyword
-hi! link jsStorageClass Keyword
-hi! link jsKeyword Keyword
-hi! link jsAsyncKeyword Keyword
-hi! link jsReturn Keyword
-hi! link jsConditional Keyword
-hi! link jsForAwait Keyword
-hi! link jsTry Keyword
-hi! link jsCatch Keyword
-hi! link jsException Keyword
-hi! link jsFinally Keyword
-hi! link jsRepeat Keyword
-hi! link jsOperator Keyword
-
-" Strings
+" Builtin code types
+call s:HL('Keyword', g:wBlue)
+call s:HL('Statement', g:wBlue)
+call s:HL('Constant', g:wBlue)
+call s:HL('PreProc', g:wBlue)
+call s:HL('Type', g:wBlue)
+call s:HL('Identifier', g:wBlue)
+call s:HL('Function', g:wMagenta)
 call s:HL('String', g:wGreen)
-hi! link jsString String
-hi! link Identifier String
-hi! link jsTemplateString String
-hi! link jsObjectStringKey String
 
-" Symbols and Numbers
-call s:HL('Statement', g:wCyan)
-hi! link Constant Statement
-hi! link PreProc Statement
-hi! link Type Statement
-hi! link jsNumber Statement
-hi! link jsBooleanTrue Statement
-hi! link jsBooleanFalse Statement
+" Tree-sitter code types
+hi! link TSProperty Normal
+call s:HL('TS_C_ReactHook', g:wCyan)
+call s:HL('TS_C_ClassName', g:wRed)
+call s:HL('TS_C_JsxAttribute', g:wGreen)
+call s:HL('TSNamespace', g:wBlue)
+call s:HL('TSConditional', g:wBlue)
+call s:HL('TSOperator', g:wBlue)
+call s:HL('TSIdentifier', g:wMagenta)
+call s:HL('TSTag', g:wCyan)
+hi! link TSTagDelimiter TSTag
+hi! link Whitespace Normal
+hi! link TSPunctDelimiter Normal
+hi! link TSPunctBracket Normal
+hi! link TSPunctSpecial Normal
+hi! link TSConstructor Normal
+hi! link TSParameter Normal
+hi! link TSConstant Normal
+hi! link TSVariable Normal
+hi! link TSVariableBuiltin Normal
 
-" Function names
-call s:HL('Function', g:wBlue)
-hi! link jsFuncAssignment Function
-hi! link jsObjectFuncName Function
-
-" Class names
-call s:HL('ClassName', g:wYellow)
-call s:HL('TSNamespace', g:wCyan)
-call s:HL('TSTag', g:wBlue)
-call s:HL('jsxAttribute', g:wCyan)
-
-" Etc
-hi! link cssBraces Delimiter
-hi! link cssClassName Special
-hi! link xmlEndTag xmlTag
-hi! link jsxCloseTag jsxTag
-hi! link jsxCloseString jsxTag
-hi! link jsxTagName jsxComponentName
-hi! link jsxOpenPunct jsxComponentName
-hi! link jsxClosePunct jsxComponentName
-hi! link jsxOpenString jsxComponentName
-hi! link jsxCloseString jsxComponentName
-
-" Ale
-call s:HL('SpellBad', g:wNoBg, g:wBrightRed, g:wNoCterm)
-hi! link ALEErrorSign SpellBad
-hi! link ALEWarning SpellBad
-hi! link ALEInfo SpellBad
-hi! link ALEStyleError SpellBad
-
-call s:HL('NoUnderline', g:wNoBg, g:wNoCterm)
-hi! link CocUnderline NoUnderline
-
-call s:HL('WaveVirtualText', g:wFg22)
-hi! link CocWarningVirtualText WaveVirtualText
-hi! link CocErrorVirtualText WaveVirtualText
-hi! link CocInfoVirtualText WaveVirtualText
-hi! link CocHintVirtualText WaveVirtualText
-hi! link CocWarningSign WaveVirtualText
-
+" VimWiki
 call s:HL('VimWikiLink', g:wNoBg, g:wNoCterm, g:wBlue)
 call s:HL('VimWikiHr', g:wNoBg, g:wNoCterm, g:wNoFg)
 hi! link VimwikiList Normal
@@ -257,30 +189,7 @@ hi! link VimwikiCode Normal
 
 " CoC
 call s:HL('CocFloating', g:wBg2)
-call s:HL('CocErrorHighlight', g:wBrightRed)
-call s:HL('CocErrorSign', g:wBrightRed)
+call s:HL('CocErrorHighlight', g:wRed)
+call s:HL('CocErrorSign', g:wRed)
 call s:HL('CocErrorVirtualText', g:wRed)
-
-" NERDTree
-" call s:HL('NERDTreeCWD', g:wGreen)
-" call s:HL('NERDTreeFile', g:wWhite)
-" call s:HL('NERDTreeHelp', g:wWhite)
-" call s:HL('NERDTreeDir', g:wCyan, g:wNoCterm)
-" hi! link NERDTreeDirSlash NERDTreeDir
-" hi! link NERDTreeOpenable NERDTreeDir
-" hi! link NERDTreeClosable NERDTreeDir
-"
-" call s:HL('NERDTreeExecFile', g:wRed)
-" call s:HL('NERDTreeUp', g:wRed)
-" call s:HL('NERDTreeToggleOn', g:wRed)
-" call s:HL('NERDTreeToggleOff', g:wRed)
-"
-" call s:HL('NERDTreeFlags', g:wMagenta)
-" call s:HL('NERDTreeGitStatusModified', g:wMagenta)
-" call s:HL('NERDTreeGitStatusStaged', g:wMagenta)
-" call s:HL('NERDTreeGitStatusRenamed', g:wMagenta)
-" call s:HL('NERDTreeGitStatusUnmerged', g:wMagenta)
-" call s:HL('NERDTreeGitStatusUntracked', g:wMagenta)
-" call s:HL('NERDTreeGitStatusDirDirty', g:wMagenta)
-" call s:HL('NERDTreeGitStatusDirClean', g:wMagenta)
-" call s:HL('NERDTreeGitStatusIgnored', g:wMagenta)
+call s:HL('CocUnderline', g:wNoBg, g:wNoCterm)
