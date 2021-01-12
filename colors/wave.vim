@@ -22,7 +22,7 @@ if &background ==# 'dark'
   let g:wRgbBlack     = '#1c2023'
   let g:wRgbRed       = '#D5869E'
   let g:wRgbGreen     = '#a2c7a9'
-  let g:wRgbYellow    = '#E7DDBB'
+  let g:wRgbYellow    = '#EFE7CA' " Previously was #E7DDBB
   let g:wRgbBlue      = '#95aec7'
   let g:wRgbMagenta   = '#ae95c7'
   let g:wRgbCyan      = '#68b2c9'
@@ -165,6 +165,7 @@ hi! link TSProperty Normal
 call s:HL('TS_C_ReactHook', g:wCyan)
 call s:HL('TS_C_ClassName', g:wRed)
 call s:HL('TS_C_JsxAttribute', g:wGreen)
+call s:HL('TS_C_FunctionCall', g:wYellow)
 call s:HL('TSNamespace', g:wBlue)
 call s:HL('TSConditional', g:wBlue)
 call s:HL('TSOperator', g:wBlue)
