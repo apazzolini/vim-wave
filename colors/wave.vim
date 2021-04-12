@@ -188,9 +188,20 @@ call s:HL('VimWikiHr', g:wNoBg, g:wNoCterm, g:wNoFg)
 hi! link VimwikiList Normal
 hi! link VimwikiCode Normal
 
-" CoC
-call s:HL('CocFloating', g:wBg2)
-call s:HL('CocErrorHighlight', g:wRed)
-call s:HL('CocErrorSign', g:wRed)
-call s:HL('CocErrorVirtualText', g:wRed)
-call s:HL('CocUnderline', g:wNoBg, g:wNoCterm)
+" LSP
+call s:HL('LspDiagnosticsDefaultError', g:wRed)
+
+" Telescope
+call s:HL('TelescopeMatching', g:wRed)
+call s:HL('TelescopeBorder', 'guifg=#bf568b')
+hi! link TelescopePromptBorder  TelescopeBorder
+hi! link TelescopeResultsBorder TelescopeBorder
+hi! link TelescopePreviewBorder TelescopeBorder
+hi! link TelescopePromptPrefix TelescopeBorder
+call s:HL('TelescopeSelection', g:wCyan)
+hi! link TelescopeSelectionCaret TelescopeSelection
+call s:HL('TelescopeMultiSelection', g:wMagenta)
+
+" Galaxyline
+highlight! StatusLine gui=none guibg=#2b3034 guifg=NONE
+highlight! StatusLineNC gui=underline guibg=#2b3034 guifg=#2b3034
